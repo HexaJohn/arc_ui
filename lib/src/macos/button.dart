@@ -25,6 +25,8 @@ class MacOsButtonFactory extends ButtonFactory {
           secondary: true,
           child: Text(text),
         );
+      // MacOS does have an outlined button style
+      // see SwitchResX extension preferences pane
       case ButtonType.outlined:
         return PushButton(
           controlSize: ControlSize.regular,
@@ -32,6 +34,8 @@ class MacOsButtonFactory extends ButtonFactory {
           secondary: true,
           child: Text(text),
         );
+      // Text buttons in macOS are usually just for tooltips or links
+      // see About This Mac > Regulatory Information
       case ButtonType.text:
         return PushButton(
           controlSize: ControlSize.regular,
