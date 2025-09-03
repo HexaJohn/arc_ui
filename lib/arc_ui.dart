@@ -1,5 +1,7 @@
 library arc_ui;
 
+export 'registry/button.dart';
+
 export 'src/arc/activity_indicator.dart';
 export 'src/arc/adaptive_text_selection_toolbar.dart';
 export 'src/arc/app.dart';
@@ -49,4 +51,5 @@ export 'src/arc/text_selection_toolbar_button.dart';
 export 'src/arc/text_theme.dart';
 export 'src/arc/theme.dart';
 export 'src/arc/thumb_painter.dart';
+
 export 'package:flutter/widgets.dart';
