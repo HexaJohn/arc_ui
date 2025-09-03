@@ -13,12 +13,23 @@ class CupertinoButtonFactory extends ButtonFactory {
   }) {
     switch (type) {
       case ButtonType.primary:
-        return CupertinoButton.filled(onPressed: onPressed, child: Text(text));
-      case ButtonType.secondary:
-        return CupertinoButton.tinted(
-          color: CupertinoColors.systemGrey,
+        return CupertinoButton.filled(
+          color: CupertinoColors.systemBlue,
           onPressed: onPressed,
-          child: Text(text, style: TextStyle(color: CupertinoColors.label)),
+          child: Text(
+            text,
+            style: TextStyle(color: CupertinoColors.white),
+          ),
+        );
+      // TODO: This completely breaks in dark mode
+      case ButtonType.secondary:
+        return CupertinoButton.filled(
+          color: CupertinoColors.white,
+          onPressed: onPressed,
+          child: Text(
+            text,
+            style: TextStyle(color: CupertinoColors.black),
+          ),
         );
       case ButtonType.outlined:
         return Container(
@@ -35,7 +46,13 @@ class CupertinoButtonFactory extends ButtonFactory {
           ),
         );
       case ButtonType.text:
-        return CupertinoButton(onPressed: onPressed, child: Text(text));
+        return CupertinoButton(
+          onPressed: onPressed,
+          child: Text(
+            text,
+            style: TextStyle(color: CupertinoColors.systemBlue),
+          ),
+        );
     }
   }
 }
