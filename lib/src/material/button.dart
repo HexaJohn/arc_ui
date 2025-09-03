@@ -6,7 +6,11 @@ class MaterialButtonFactory extends ButtonFactory {
   String get styleName => 'Material Design';
 
   @override
-  Widget createButton({required String text, required VoidCallback onPressed, ButtonType type = ButtonType.primary}) {
+  Widget createButton({
+    required String text,
+    required VoidCallback onPressed,
+    ButtonType type = ButtonType.primary,
+  }) {
     switch (type) {
       case ButtonType.primary:
         return ElevatedButton(onPressed: onPressed, child: Text(text));

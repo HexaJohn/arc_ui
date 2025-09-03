@@ -6,7 +6,11 @@ class CupertinoButtonFactory extends ButtonFactory {
   String get styleName => 'Cupertino (iOS)';
 
   @override
-  Widget createButton({required String text, required VoidCallback onPressed, ButtonType type = ButtonType.primary}) {
+  Widget createButton({
+    required String text,
+    required VoidCallback onPressed,
+    ButtonType type = ButtonType.primary,
+  }) {
     switch (type) {
       case ButtonType.primary:
         return CupertinoButton.filled(onPressed: onPressed, child: Text(text));
@@ -24,7 +28,10 @@ class CupertinoButtonFactory extends ButtonFactory {
           ),
           child: CupertinoButton(
             onPressed: onPressed,
-            child: Text(text, style: TextStyle(color: CupertinoColors.systemBlue)),
+            child: Text(
+              text,
+              style: TextStyle(color: CupertinoColors.systemBlue),
+            ),
           ),
         );
       case ButtonType.text:

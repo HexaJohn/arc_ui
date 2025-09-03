@@ -6,7 +6,11 @@ class FluentButtonFactory extends ButtonFactory {
   String get styleName => 'Fluent Design (Windows)';
 
   @override
-  Widget createButton({required String text, required VoidCallback onPressed, ButtonType type = ButtonType.primary}) {
+  Widget createButton({
+    required String text,
+    required VoidCallback onPressed,
+    ButtonType type = ButtonType.primary,
+  }) {
     switch (type) {
       case ButtonType.primary:
         return FilledButton(onPressed: onPressed, child: Text(text));

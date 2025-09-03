@@ -20,7 +20,10 @@ class ArcButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final factory = ButtonStyleRegistry.getFactory(style);
     if (factory == null) {
-      return ElevatedButton(onPressed: onPressed, child: Text('$text (Unsupported Style)'));
+      return ElevatedButton(
+        onPressed: onPressed,
+        child: Text('$text (Unsupported Style)'),
+      );
     }
 
     return factory.createButton(text: text, onPressed: onPressed, type: type);
@@ -29,7 +32,11 @@ class ArcButton extends StatelessWidget {
 
 // Abstract button factory for extensibility
 abstract class ButtonFactory {
-  Widget createButton({required String text, required VoidCallback onPressed, ButtonType type = ButtonType.primary});
+  Widget createButton({
+    required String text,
+    required VoidCallback onPressed,
+    ButtonType type = ButtonType.primary,
+  });
 
   String get styleName;
 }

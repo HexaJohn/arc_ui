@@ -26,5 +26,6 @@ class ButtonStyleRegistry {
 
   static List<UIStyle> get availableStyles => _factories.keys.toList();
 
-  static List<String> get availableStyleNames => _factories.values.map((f) => f.styleName).toList();
+  static List<String> get availableStyleNames =>
+      _factories.values.map((f) => f.styleName).toList();
 }
