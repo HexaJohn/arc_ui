@@ -9,6 +9,20 @@ class LiquidButtonFactory extends ButtonFactory {
   @override
   String get styleName => 'Liquid Glass (iOS 26)';
 
+  final liquidGlassSettings = const LiquidGlassSettings(
+    thickness: 10,
+    glassColor: Color.fromARGB(
+      116,
+      255,
+      255,
+      255,
+    ),
+    lightIntensity: 1.5,
+    lightAngle: 0.25 * pi,
+    blend: 40,
+    blur: 2,
+  );
+
   @override
   Widget createButton({
     required String text,
@@ -18,20 +32,21 @@ class LiquidButtonFactory extends ButtonFactory {
     switch (type) {
       case ButtonType.primary:
         return LiquidGlass(
-          settings: const LiquidGlassSettings(
-            thickness: 10,
-            glassColor: Color.fromARGB(
-              116,
-              255,
-              255,
-              255,
-            ), // A subtle white tint
-            lightIntensity: 1.5,
-            lightAngle: 0.25 * pi,
-            blend: 40,
-            blur: 2,
-            // outlineIntensity: 0.5,
+          settings: liquidGlassSettings,
+          shape: LiquidRoundedRectangle(borderRadius: Radius.circular(32)),
+          glassContainsChild: false,
+          child: CupertinoButton(
+            foregroundColor: Colors.black,
+            onPressed: onPressed,
+            child: Text(
+              text,
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
           ),
+        );
+      case ButtonType.secondary:
+        return LiquidGlass(
+          settings: liquidGlassSettings,
           shape: LiquidRoundedRectangle(borderRadius: Radius.circular(32)),
           glassContainsChild: false,
           child: CupertinoButton(
@@ -40,25 +55,15 @@ class LiquidButtonFactory extends ButtonFactory {
             child: Text(text),
           ),
         );
-      // return CupertinoButton.filled(onPressed: onPressed, child: Text(text));
-      case ButtonType.secondary:
-        return CupertinoButton.tinted(
-          color: CupertinoColors.systemGrey,
-          onPressed: onPressed,
-          child: Text(text, style: TextStyle(color: CupertinoColors.label)),
-        );
       case ButtonType.outlined:
-        return Container(
-          decoration: BoxDecoration(
-            border: Border.all(color: CupertinoColors.systemBlue),
-            borderRadius: BorderRadius.circular(8),
-          ),
+        return LiquidGlass(
+          settings: liquidGlassSettings,
+          shape: LiquidRoundedRectangle(borderRadius: Radius.circular(32)),
+          glassContainsChild: false,
           child: CupertinoButton(
+            foregroundColor: Colors.black,
             onPressed: onPressed,
-            child: Text(
-              text,
-              style: TextStyle(color: CupertinoColors.systemBlue),
-            ),
+            child: Text(text),
           ),
         );
       case ButtonType.text:
