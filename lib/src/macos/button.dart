@@ -7,16 +7,39 @@ class MacOsButtonFactory extends ButtonFactory {
   String get styleName => 'Cupertino (iOS)';
 
   @override
-  Widget createButton({required String text, required VoidCallback onPressed, ButtonType type = ButtonType.primary}) {
+  Widget createButton({
+    required String text,
+    required VoidCallback onPressed,
+    ButtonType type = ButtonType.primary,
+  }) {
     switch (type) {
       case ButtonType.primary:
-        return PushButton(controlSize: ControlSize.regular, onPressed: onPressed, child: Text(text));
+        return PushButton(
+          controlSize: ControlSize.regular,
+          onPressed: onPressed,
+          child: Text(text),
+        );
       case ButtonType.secondary:
-        return PushButton(controlSize: ControlSize.regular, onPressed: onPressed, secondary: true, child: Text(text));
+        return PushButton(
+          controlSize: ControlSize.regular,
+          onPressed: onPressed,
+          secondary: true,
+          child: Text(text),
+        );
       case ButtonType.outlined:
-        return PushButton(controlSize: ControlSize.regular, onPressed: onPressed, secondary: true, child: Text(text));
+        return PushButton(
+          controlSize: ControlSize.regular,
+          onPressed: onPressed,
+          secondary: true,
+          child: Text(text),
+        );
       case ButtonType.text:
-        return PushButton(controlSize: ControlSize.regular, onPressed: onPressed, secondary: true, child: Text(text));
+        return PushButton(
+          controlSize: ControlSize.regular,
+          onPressed: onPressed,
+          secondary: true,
+          child: Text(text),
+        );
     }
   }
 }
