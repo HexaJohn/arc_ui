@@ -1,5 +1,4 @@
 import 'package:arc_ui/arc_ui.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:macos_ui/macos_ui.dart';
 
 class MacOsButtonFactory extends ButtonFactory {
