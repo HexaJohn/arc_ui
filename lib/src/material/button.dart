@@ -13,11 +13,43 @@ class MaterialButtonFactory extends ButtonFactory {
   }) {
     switch (type) {
       case ButtonType.primary:
-        return ElevatedButton(onPressed: onPressed, child: Text(text));
+        return Builder(
+          builder: (context) {
+            final theme = Theme.of(context);
+            return ElevatedButton(
+              onPressed: onPressed,
+              style: ElevatedButton.styleFrom(
+                backgroundColor:
+                    theme.colorScheme.secondary, // Use theme's secondary color
+                foregroundColor:
+                    theme.colorScheme.primary, // Use theme's primary color
+              ),
+              child: Text(
+                text,
+                style: TextStyle(color: theme.colorScheme.onPrimary),
+              ),
+            );
+          },
+        );
       case ButtonType.secondary:
-        return FilledButton.tonal(onPressed: onPressed, child: Text(text));
+        return ElevatedButton(onPressed: onPressed, child: Text(text));
       case ButtonType.outlined:
-        return OutlinedButton(onPressed: onPressed, child: Text(text));
+        return Builder(
+          builder: (context) {
+            final theme = Theme.of(context);
+
+            return OutlinedButton(
+              onPressed: onPressed,
+              child: Text(text),
+              style: OutlinedButton.styleFrom(
+                side: BorderSide(
+                  width: 1.0,
+                  color: theme.colorScheme.outlineVariant,
+                ),
+              ),
+            );
+          },
+        );
       case ButtonType.text:
         return TextButton(onPressed: onPressed, child: Text(text));
     }
