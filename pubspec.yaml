@@ -7,11 +7,15 @@ environment:
   sdk: ^3.8.1
   flutter: ">=1.17.0"
 
+workspace:
+  - example
+
 dependencies:
   flutter:
     sdk: flutter
   fluent_ui: ^4.12.0
   macos_ui: ^2.2.0
+  liquid_glass_renderer: ^0.1.1-dev.10
 
 dev_dependencies:
   flutter_test:
