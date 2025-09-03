@@ -15,12 +15,9 @@ class FluentButtonFactory extends ButtonFactory {
       case ButtonType.primary:
         return FilledButton(onPressed: onPressed, child: Text(text));
       case ButtonType.secondary:
-        return FilledButton(
-          onPressed: onPressed,
-          child: Text(text, style: TextStyle(color: Colors.grey)),
-        );
+        return Button(onPressed: onPressed, child: Text(text));
       case ButtonType.outlined:
-        return FilledButton(onPressed: onPressed, child: Text(text));
+        return OutlinedButton(onPressed: onPressed, child: Text(text));
 
       case ButtonType.text:
         return HyperlinkButton(onPressed: onPressed, child: Text(text));
