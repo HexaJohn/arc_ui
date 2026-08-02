@@ -1,5 +1,4 @@
 import 'package:arc_ui/arc_ui.dart';
-import 'package:arc_ui/registry/button.dart';
 import 'package:example/widgets/grid_painter.dart';
 import 'package:fluent_ui/fluent_ui.dart' as fluent;
 import 'package:flutter/material.dart';

@@ -1,0 +1,29 @@
+name: arc_widgetbook
+description: "Interactive component sandbox for arc_ui."
+publish_to: "none"
+version: 0.1.0
+
+resolution: workspace
+
+environment:
+  sdk: ^3.9.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  arc_ui:
+    path: ../
+  fluent_ui: ^4.12.0
+  macos_ui: ^2.2.0
+  widgetbook: ^3.21.0
+  widgetbook_annotation: ^3.10.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.13
+  widgetbook_generator: ^3.21.0
+
+flutter:
+  uses-material-design: true

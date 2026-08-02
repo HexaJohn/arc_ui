@@ -5,9 +5,6 @@ import 'package:arc_ui/src/liquid/button.dart';
 import 'package:arc_ui/src/macos/button.dart';
 import 'package:arc_ui/src/material/button.dart';
 
-// Extensible enum for UI styles
-enum UIStyle { material, cupertino, fluent, macos, windows11, liquid, custom }
-
 // Button style registry for dynamic registration
 class ButtonStyleRegistry {
   static final Map<UIStyle, ButtonFactory> _factories = {

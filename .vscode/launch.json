@@ -5,6 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Arc UI example (macOS)",
+      "request": "launch",
+      "type": "dart",
+      "program": "example/lib/main.dart",
+      "deviceId": "macos",
+      "args": ["--enable-impeller"]
+    },
+    {
       "name": "arc_ui",
       "request": "launch",
       "type": "dart",
@@ -22,6 +30,14 @@
       "request": "launch",
       "type": "dart",
       "flutterMode": "release",
+      "args": ["--enable-impeller"]
+    },
+    {
+      "name": "arc_ui sandbox (widgetbook)",
+      "request": "launch",
+      "type": "dart",
+      "program": "widgetbook/lib/main.dart",
+      "deviceId": "macos",
       "args": ["--enable-impeller"]
     }
   ]

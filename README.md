@@ -1,35 +1,74 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# arc_ui
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+**ARC — Adaptive Rendering Components.** One widget API that renders in the
+design language you ask for: Material, Cupertino, Fluent, macOS, or Liquid Glass.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Write `ArcButton` once. Pass a different `UIStyle` and it becomes a Material
+button, a Cupertino button, or a Fluent one — same call site, same behaviour,
+native look on every target.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- **Seven widgets, five design languages.** Buttons, checkboxes, sliders,
+  switches, app bars, scaffolds and navigation, each available in Material,
+  Cupertino, Fluent, macOS and Liquid Glass.
+- **Style is a parameter, not a fork.** No `if (Platform.isIOS)` branches at the
+  call site; the style travels as an argument.
+- **Extensible by registration.** Ship your own design language by registering a
+  factory against `UIStyle.custom` — no fork of this package required.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```yaml
+dependencies:
+  arc_ui: ^0.0.1
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+```dart
+import 'package:arc_ui/arc_ui.dart';
+
+ArcScaffold(
+  style: UIStyle.fluent,
+  appBar: const ArcAppBar(title: Text('Settings'), style: UIStyle.fluent),
+  body: Column(
+    children: [
+      ArcCheckbox(
+        value: subscribed,
+        onChanged: (v) => setState(() => subscribed = v),
+        style: UIStyle.fluent,
+      ),
+      ArcButton(
+        text: 'Save',
+        onPressed: save,
+        style: UIStyle.fluent,
+        type: ButtonType.primary,
+      ),
+    ],
+  ),
+);
+```
+
+Swap every `UIStyle.fluent` for `UIStyle.macos` and the same screen renders as a
+native macOS one.
+
+### Adding your own style
 
 ```dart
-const like = 'sample';
+class BrandButtonFactory implements ButtonFactory {
+  @override
+  String get styleName => 'Brand';
+
+  @override
+  Widget createButton({
+    required String text,
+    required VoidCallback onPressed,
+    ButtonType type = ButtonType.primary,
+  }) => /* your button */;
+}
+
+ButtonStyleRegistry.registerFactory(UIStyle.custom, BrandButtonFactory());
 ```
 
 ## Additional information

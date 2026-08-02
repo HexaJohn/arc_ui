@@ -12,6 +12,12 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<!-- liquid_glass_renderer asserts unless Impeller is active, and Impeller is
+	     not the default for macOS on this toolchain. Setting it here means the
+	     Liquid Glass style works when built or launched from Finder too, not
+	     only under `flutter run --enable-impeller`. -->
+	<key>FLTEnableImpeller</key>
+	<true/>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>

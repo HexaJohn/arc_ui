@@ -1,4 +1,5 @@
 import 'package:arc_ui/registry/button.dart';
+import 'package:arc_ui/registry/ui_style.dart';
 import 'package:flutter/material.dart';
 
 // Arc button widget
